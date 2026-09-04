@@ -3,10 +3,9 @@
 using namespace std;
 
 int main() {
-  cout << "--- Homework 2 ---" << endl;
-  
-  {
-    cout << "- Question 1 -" << endl;
+  cout << "--- Homework 2 ---" << endl << endl << endl;
+     {
+    cout << "- Question 1 -" << endl << endl;
 
     // PRINTING STUFF :P
     cout << "Name: Hashir" << endl;
@@ -16,7 +15,7 @@ int main() {
 
 
   {
-    cout << "- Question 2 -" << endl;
+    cout << endl << "- Question 2 -" << endl << endl;
     // idk it says to only do 1, 4 and 6th row, but then why the table :(E)
     /*
       int 2ndAttempt    -> has 2 at start, numbers can't be at start - Compiles? (No) - Good Style? (No)
@@ -47,11 +46,12 @@ int main() {
 
 
   {
-    cout << "- Question 3 -" << endl;
+    cout << endl << "- Question 3 -" << endl << endl;
 
     int roll, age, cgpa; // what is cgpa :o
 
     cout << "Enter your RollNo, Age and CGPA in the given order: ";
     cin >> roll >> age >> cgpa;
+    cout << "Confimed -> Roll: " << roll << " | Age: " << age << " | CGPA " << cgpa << endl;
   }
 }
