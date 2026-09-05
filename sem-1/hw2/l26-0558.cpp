@@ -1,4 +1,5 @@
 #include <iostream>
+#include <climits>
 
 using namespace std;
 
@@ -241,6 +242,82 @@ int main() {
 
   {
     
+    cout << endl << "- Question 15 -" <<endl <<endl;
+    int maxVal = INT_MAX;
+    
+    /*
+      let's assume that int ranges from -8 to 8
+      when int is 8 and we add one instead of becoming 9
+      it circles to the lowest possible value which is -8
+      and adding one then decreases it :p
+    */
+    cout << "INT_MAX: " << maxVal << endl;
+    cout << "INT_MAX + 1: " << maxVal + 1 << endl;
+    cout << "INT_MAX + 2: " << maxVal + 2 << endl;
+  }
+
+  {
+    cout << endl << "- Question 16 -" << endl << endl;
+    int signedZero = 0;
+    unsigned int unsignedZero = 0;
+    int a = -1;
+    unsigned int b = 1;
+
+    /*
+      for signed int 0 - 1 becocmes -1 cuz it can store -ve numbers
+      for unSigned int 0 - 1 becomes a huge number cuz 0 is the smallest number and decreasing it
+      makes it circle to the highest number
+
+      the binary value of  -1 (int) assume it to be 1000
+      then binary value of 1 (unsigned int) will be 0001
+      1000 < 0001  is false so we get 0
+
+      these values aren't real values or taken from ascii table i js made them up bcz @sir said that 1st bit is used for sign
+      and i also assumed them to be 4bit :P 
+
+    */
+    cout << "signedZero - 1 = " << signedZero - 1 << endl;
+    cout << "unsignedZero - 1 = " << unsignedZero - 1 << endl;
+
+    // this line gives warning to me -_- not my fault tho
+    /*
+      clang++ -std=c++23 -Wall -Wextra -g l26-0558.cpp -o bin.out
+      l26-0558.cpp:281:55: warning: comparison of integers of
+            different signs: 'int' and 'unsigned int'
+            [-Wsign-compare]
+        281 |   ...as int = " << static_cast<int>(a < b) <<endl;
+            |                           
+    */
+    cout << "(a < b) as int = " << static_cast<int>(a < b) <<endl;
+  }
+
+  {
+    cout << endl << "- Question 17 -" <<endl << endl;
+    float bigFloat = 100000000.0f;
+    cout << "bigFloat = " << bigFloat << endl;
+    cout << "bigFloat + 0.0001f = " << bigFloat + 0.0001f << endl;
+    cout << "Difference (float) = " << (bigFloat + 0.0001f) - bigFloat << endl;
+
+    /*
+      float is less precise than double
+      float precision is ~6
+      double precision is ~15
+
+      float can't handle really small decimal numbers like 0.0001f
+      while double can :o
+    */
+    double bigDouble = 100000000.0f;
+    cout << "bigDouble = " << bigDouble << endl;
+    cout << "bigDouble + 0.0001f = " << bigDouble + 0.0001f << endl;
+    cout << "Difference (double) = " << (bigDouble + 0.0001f) - bigDouble << endl;
+  }
+
+  {
+    cout << endl << "- Question 18 -" << endl << endl;
+    unsigned char counter = 255;
+    cout << "Initial Counter (255) = " << static_cast<int>(counter) << endl;
+    cout << "Counter after + 1 (wrap) = " << static_cast<int>(counter + 1)<< endl;
+    cout << "Counter after + 2 = " << static_cast<int>( counter + 2) << endl;
   }
   return 0;
 }
