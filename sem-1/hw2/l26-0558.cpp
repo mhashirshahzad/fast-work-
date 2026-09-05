@@ -316,8 +316,19 @@ int main() {
     cout << endl << "- Question 18 -" << endl << endl;
     unsigned char counter = 255;
     cout << "Initial Counter (255) = " << static_cast<int>(counter) << endl;
-    cout << "Counter after + 1 (wrap) = " << static_cast<int>(counter + 1)<< endl;
-    cout << "Counter after + 2 = " << static_cast<int>( counter + 2) << endl;
+    /*
+      uhm so idk about cars so i think odometer (told by wiki) is the digits below the circular pie meter
+      unsigned char ranges from 0 to 255
+      when we add 1 it becomes 255 + 1 but 256 cant be stored in char so it becomes 0
+      then add 1 it becomes 1
+
+      for odometer analogy
+      odometer can range from 0 to X and when it crosses the limit it resets back to 0 and then starts counting again
+    */
+    counter++;
+    cout << "Counter after + 1 (wrap) = " << static_cast<int>(counter)<< endl;
+    counter++;
+    cout << "Counter after + 2 = " << static_cast<int>( counter) << endl;
   }
   return 0;
 }
