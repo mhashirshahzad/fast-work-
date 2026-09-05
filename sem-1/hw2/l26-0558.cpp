@@ -194,5 +194,15 @@ int main() {
     
   }
 
+  {
+    cout << endl << "- Question 11 -" << endl << endl;
+    char c;
+    cout << "Enter a lower case character: ";
+    cin >> c;
+    cout << "ASCII code of " << c << " is: " << (int) c << endl;
+    cout << "3 letters later: " << (char)(c+3) <<endl;
+    cout << "Uppercase version: " << (char)(c - 32)<< endl;
+  }
   return 0;
 }
+
