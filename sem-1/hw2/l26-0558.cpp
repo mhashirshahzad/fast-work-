@@ -203,6 +203,45 @@ int main() {
     cout << "3 letters later: " << (char)(c+3) <<endl;
     cout << "Uppercase version: " << (char)(c - 32)<< endl;
   }
+
+  {
+    cout << endl << "- Question 12 -" <<endl << endl;
+    char dc;
+    cout << "Enter a digit: ";
+    cin >> dc;
+    cout << "Char entered: " << dc << endl;
+    cout << "ASCII code: " << (int)dc << endl;
+    cout << "True numeric value: " << dc - '0' << endl;
+  }
+
+  {
+    cout << endl << "- Question 13 -" <<endl << endl;
+    cout << "Enter a letter and a shift: ";
+    char l;
+    int s;
+
+    cin >> l >> s;
+    cout << "OG letter: " << l <<endl;
+    cout << "Shift amount: " << s <<endl;
+    char w = 'a' + ((l - 'a' + s) %26); // yanked from the pdf ;p
+    cout << "Result after wrapped: " << w << endl;
+    
+  }
+
+  {
+    cout << endl << "- Question 14 -" << endl << endl;
+    char c1,c2;
+    int gap = ('a' - 'A');
+    cout << "Enter 2 uppercase characters: ";
+    cin >> c1 >> c2;
+    cout << "Lowercase c1: " << (char)(c1 + gap) << endl;
+    cout << "Lowercase c2: " << (char)(c2 + gap) << endl;
+    cout << "Alphabetical distance: " << c2 - c1 << " letters apart" << endl;
+  } 
+
+  {
+    
+  }
   return 0;
 }
 
