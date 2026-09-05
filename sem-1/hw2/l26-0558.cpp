@@ -164,4 +164,35 @@ int main() {
     */
     cout << "Average (as double, precise) = " << static_cast<double>((fp1 + fp2 + fp3) / 3) << endl;
   }
+
+  {
+    cout << endl << "- Question 10 -" << endl << endl;
+    int x = 2000000;
+    int y = 2000000;
+
+    // i don't remember the values so had to copy paste 'em
+    /*
+      x and y are int both of 4 bytes
+      when we multiply both we get 4,000,000,000,000
+      but "The signed int data type ranges between -2,147,483,648 to 2,147,483,647"
+      so it causes overflow and it produces a overflow value (or garbage)
+    */
+    
+    long long badProduct = x * y;
+
+    /*
+      x and y are int both of 4 bytes
+      when we multiply both we get 4,000,000,000,000
+      but if we cast x as long long it becomes 8 bytes
+      which "The long long data type ranges between -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807"
+      in front of which our 4,000,000,000,000 is a smol no. :o so we can store it in there :P
+    */ 
+    long long goodProduct = static_cast<long long>(x) * y;
+
+    cout << "Direct Product (badProduct) = " << badProduct << endl;
+    cout << "Casted Prodcut (goodProduct) = " << goodProduct << endl;
+    
+  }
+
+  return 0;
 }
