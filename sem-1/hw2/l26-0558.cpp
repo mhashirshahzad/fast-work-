@@ -317,13 +317,13 @@ int main() {
     unsigned char counter = 255;
     cout << "Initial Counter (255) = " << static_cast<int>(counter) << endl;
     /*
-      uhm so idk about cars so i think odometer (told by wiki) is the digits below the circular pie meter
+      uhm so idk about cars so i think odometer (told by google) is the circular meter on top
       unsigned char ranges from 0 to 255
       when we add 1 it becomes 255 + 1 but 256 cant be stored in char so it becomes 0
       then add 1 it becomes 1
 
       for odometer analogy
-      odometer can range from 0 to X and when it crosses the limit it resets back to 0 and then starts counting again
+      odometer can range from 0 to X and when it crosses the limit it resets
     */
     counter++;
     cout << "Counter after + 1 (wrap) = " << static_cast<int>(counter)<< endl;
