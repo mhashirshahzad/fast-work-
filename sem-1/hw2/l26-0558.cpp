@@ -224,6 +224,17 @@ int main() {
     cin >> l >> s;
     cout << "OG letter: " << l <<endl;
     cout << "Shift amount: " << s <<endl;
+
+    /*
+      l = 'x'
+      l - 'a' = 23  // 120 - 97 = 23
+      s = 5
+      23 + s = 28
+      27 % 26 = 2
+      'a' + 2 = 97 + 2 = 99 = 'c'
+
+      so it shifts the character while keeping it btwn 'a' to 'z' or 97 to 122
+    */
     char w = 'a' + ((l - 'a' + s) %26); // yanked from the pdf ;p
     cout << "Result after wrapped: " << w << endl;
     
