@@ -230,7 +230,7 @@ int main() {
       l - 'a' = 23  // 120 - 97 = 23
       s = 5
       23 + s = 28
-      27 % 26 = 2
+      28 % 26 = 2
       'a' + 2 = 97 + 2 = 99 = 'c'
 
       so it shifts the character while keeping it btwn 'a' to 'z' or 97 to 122
