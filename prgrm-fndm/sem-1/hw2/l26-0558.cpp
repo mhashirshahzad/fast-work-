@@ -1,5 +1,6 @@
 #include <iostream>
 #include <climits>
+#include <iomanip>
 
 using namespace std;
 
@@ -305,9 +306,9 @@ int main() {
   {
     cout << endl << "- Question 17 -" <<endl << endl;
     float bigFloat = 100000000.0f;
-    cout << "bigFloat = " << bigFloat << endl;
-    cout << "bigFloat + 0.0001f = " << bigFloat + 0.0001f << endl;
-    cout << "Difference (float) = " << (bigFloat + 0.0001f) - bigFloat << endl;
+    cout << "bigFloat = " << fixed << bigFloat << endl;
+    cout << "bigFloat + 0.0001f = " << fixed << bigFloat + 0.0001f << endl;
+    cout << "Difference (float) = " << fixed << (bigFloat + 0.0001f) - bigFloat << endl;
 
     /*
       float is less precise than double
@@ -318,9 +319,9 @@ int main() {
       while double can :o
     */
     double bigDouble = 100000000.0f;
-    cout << "bigDouble = " << bigDouble << endl;
-    cout << "bigDouble + 0.0001f = " << bigDouble + 0.0001f << endl;
-    cout << "Difference (double) = " << (bigDouble + 0.0001f) - bigDouble << endl;
+    cout << "bigDouble = " << fixed << bigDouble << endl;
+    cout << "bigDouble + 0.0001f = " << fixed << bigDouble + 0.0001f << endl;
+    cout << "Difference (double) = " << fixed << (bigDouble + 0.0001f) - bigDouble << endl;
   }
 
   {
