@@ -319,7 +319,7 @@ int main()
   cout << endl << "======= Mission 5 ======" <<endl;
 
   {
-    cout << "- Mission 7 -" << endl;
+    cout << endl << "- Mission 7 -" << endl;
     int n, code, enrgy = 100;
     int atmpts = 0;
     bool didOpen = false;
@@ -347,8 +347,7 @@ int main()
       }
       else if ( t > code)
       {
-        // am i supposed to do w og energy or not????
-        enrgy -= enrgy / n;
+        enrgy -= 100 / n;
         cout << "Too high" << endl;
       }else if (t < code){
         cout << "Too low" << endl;
@@ -370,7 +369,12 @@ int main()
 
     cout << "Enter a +ve int: ";
     cin >> n;
-
+    if (n < 1)
+    {
+      cout << "Err: Can't take 0, using 1 instead" << endl;
+      
+      n = 1;
+    }
     while (n!= 1)
     {
       if (n % 2 == 0)
@@ -392,7 +396,7 @@ int main()
   }
 
   {
-    cout << "- Mission 9 -" << endl;
+    cout << endl << "- Mission 9 -" << endl;
 
     // infinity
     // TODO: commment me
@@ -432,7 +436,7 @@ int main()
   }
 
   {
-    cout << "- Mission 10 -" << endl;
+    cout << endl << "- Mission 10 -" << endl;
     int hp = 100, gld = 0, scr = 0;
     int encr_srv = 0;
 
@@ -450,29 +454,38 @@ int main()
       else if ( t == 1)
         {
           hp -= 20;
+          cout <<"You meet monster -> hp: " << hp << endl;
         }
       else if (t == 2){
         gld += 100;
         scr += 10;
+        cout << "You find treasure -> gold: " << gld << ", score: " <<  scr << endl;
+        
+        
       }
       else if (t == 3)
       {
         hp -= 15;
         scr -= 5;
+        cout << "You get in a trap -> hp: " << hp << ", score: " << scr << endl;
+        
       }
       else if ( t == 4)
       {
         hp += 25;
+        cout << "You meet a healing fountain -> hp: " << hp << endl;
       }
       else if (t == 5 && hp < 40)
       {
         gld+= 250;
         scr += 50;
+        cout << "You find artifact -> gold: " << gld << ", score: " << scr <<endl;
       }
       else if (t == 5)
       {
         gld += 250;
         scr += 30;
+        cout << "You find artifact -> gold: " << gld << ", score: " << scr <<endl;
       }
 
       if (hp > 100)
