@@ -222,7 +222,7 @@ int main()
 
   {
     cout << endl << "- Misssion 5 -" << endl;
-    
+    // n_l -> largest, n_l2 -> 2nd largest, n_s -> smallest
     unsigned int n, n_l = 0, n_l2 = 0, n_s = 1000000000;
 
     cout << "Enter no. of +ve integers: ";
@@ -262,10 +262,12 @@ int main()
   {
     cout << endl << "- Mission 6 -" << endl;
 
+    // sf -> safe, crsd -> cursed
     int n;
     int sf = 0, crsd = 0, empty = 0;
     int sum_sf = 0, sum_crsd =0;
     int lrg_sf = 0, sm_crsd = 0;
+    // sm != sum, sm is smallest
     cout << "Enter number of artifacts; ";
     cin >> n;
     
@@ -400,6 +402,7 @@ int main()
 
     // infinity
     // TODO: commment me
+    // e = energy
     unsigned int e, no_rnds = 0, hgh_e = 0, low_e = 0, no_even = 0, no_odd = 0;
     cout << "Enter +ve energy (plz enter 0 to prevent infinite loop): ";
     cin >> e;
@@ -438,7 +441,7 @@ int main()
   {
     cout << endl << "- Mission 10 -" << endl;
     int hp = 100, gld = 0, scr = 0;
-    int encr_srv = 0;
+    int encr_srv = 0; // encounters survived
 
     cout << "1 = Monster, 2 = Treasure, 3 = Trap, 4 = Healing Fountain, 5 = Ancient Artifact" << endl;
 
@@ -535,6 +538,8 @@ int main()
 
   {
     cout << endl << "- Bonus B -" << endl;
+
+    // r_n -> reversed no
     unsigned int n, r_n = 0, cnt = 0, dig_sum = 0;
     cout << "Enter a +ve no; ";
     cin >> n;
