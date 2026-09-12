@@ -505,5 +505,106 @@ int main()
     else
       cout << "novice" << endl;
   }
+
+  cout << endl << "========== BONUS ===========" << endl;
+
+  {
+    cout << endl << "- Bonus A -" << endl;
+    unsigned int n, sum = 0;
+
+    int i = 1;
+
+    cout << "Enter a +ve number: ";
+    cin >> n;
+
+    while (i < n)
+    {
+      if (n % i == 0)
+      {
+        sum += i;
+      }
+
+      i++;
+    }
+    cout << "Sum of proper divisors: " << sum << endl;
+
+    if ( sum == n)
+      cout << "PERFECT NUMBER!" <<endl;
+    
+  }
+
+  {
+    cout << endl << "- Bonus B -" << endl;
+    unsigned int n, r_n = 0, cnt = 0, dig_sum = 0;
+    cout << "Enter a +ve no; ";
+    cin >> n;
+    unsigned int og_n = n;
+    
+    while (n / 10 != 0 || n != 0)
+    {
+      unsigned int d  = n % 10;
+
+      dig_sum += d;
+      cnt += 1;
+      r_n = (r_n * 10) + d;
+
+      n /= 10;
+    }
+
+    cout << "Reverse: " << r_n << endl;
+    cout << "Digits: " << cnt << endl;
+    cout << "Digit Sum: " << dig_sum << endl;
+
+    if (r_n == og_n)
+      cout << "PALINDROME! " << endl;
+  }
+
+  {
+    cout << endl << "- Bonus C -" << endl;
+
+    unsigned int n, dig_cnt = 0,
+     dig_sum = 0, dig_lrg = 0, dig_cnt_even = 0;
+
+    cout << "Enter a +ve number: ";
+    cin >> n;
+
+    unsigned int og_n = n;
+
+    
+    while (n / 10 != 0 || n != 0)
+    {
+      unsigned int d  = n % 10;
+
+      dig_sum += d;
+      dig_cnt += 1;
+
+      if ( d > dig_lrg )
+        dig_lrg = d;
+
+      if (d % 2 == 0)
+        dig_cnt_even += 1;
+      
+      n /= 10;
+    }
+
+    cout << "Digits: " << dig_cnt << endl;
+    cout << "Digit sum: " << dig_sum << endl;
+    cout << "Largest digit: " << dig_lrg << endl;
+    cout << "Even digit count: " << dig_cnt_even << endl;
+    cout << "Divisible by 3: ";
+    
+    if (og_n % 3 == 0)
+      cout << "YES";
+    else
+      cout << "NO";
+
+    cout << endl;
+
+    if (dig_cnt >= 4 && dig_sum > 20 && dig_lrg == 9 && dig_cnt_even >= 2 && og_n % 3 == 0)
+      cout << "TREASURE NUMBER! " << endl;
+    else
+      cout << "Not treasure no. " << endl;
+      
+  }
   return 0;
 }
