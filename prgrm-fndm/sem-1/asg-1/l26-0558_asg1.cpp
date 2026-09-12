@@ -171,5 +171,92 @@ int main()
     cout << "Final hp (dragon): " << drgn_hp << endl;
 
   }
+
+  cout << endl << "========= Level 3 =========" << endl;
+
+  {
+    cout << endl << "- Mission 4 -" << endl;
+    int n;
+    cout << "Enter a +ve int: ";
+    cin >> n;
+
+    int dig_cnt = 0;
+    int dig_sum = 0;
+    int dig_prd = 1;
+    int dig_lrg = 0;
+    int dig_sml = 9;
+    int dig_evn = 0;
+    int dig_odd = 0;
+
+    while (n / 10 != 0 || n != 0)
+    {
+      int t = n % 10;
+      n = n / 10;
+      
+      dig_sum += t;
+      dig_prd *= t;
+
+      if (t > dig_lrg)
+        dig_lrg = t;
+
+      if (t < dig_sml)
+        dig_sml = t;
+
+      if (t % 2 == 0)
+        dig_evn += 1;
+      else
+        dig_odd += 1;
+
+      dig_cnt += 1;
+    }
+
+    cout << "Digits: " << dig_cnt << endl;
+    cout << "Sum: " << dig_sum << endl;
+    cout << "Product: " << dig_prd << endl;
+    cout << "Largest Digit: " << dig_lrg << endl;
+    cout << "Smallest Digit: " << dig_sml << endl;
+    cout << "Even Digits: " << dig_evn << endl;
+    cout << "Odd Digits: " << dig_odd << endl; 
+  }
+
+  {
+    cout << endl << "- Misssion 5 -" << endl;
+    
+    unsigned int n, n_l = 0, n_l2 = 0, n_s = 1000000;
+
+    cout << "Enter no. of +ve integers: ";
+    cin >> n;
+
+    int i = 0;
+
+    while (i < n)
+    {
+      int t;
+      cout << "Enter number #" << i << " : ";
+      cin >> t;
+
+      if (t > n_l)
+      {
+        n_l2 = n_l;
+        n_l = t;
+      }
+
+      if (t < n_l && t > n_l2)
+        n_l2 = t;
+
+      if (t < n_s)
+        n_s = t;
+
+      i++;
+      
+    }
+
+    cout << "Largest: " << n_l << endl;   
+    cout << "2nd Largest: " << n_l2 << endl;   
+    cout << "Smallest: " << n_s << endl;   
+  }
+
+  cout <<endl << "===== Level 4 ======" << endl;
+  
   return 0;
 }
