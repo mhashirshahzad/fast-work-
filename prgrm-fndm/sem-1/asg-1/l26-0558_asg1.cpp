@@ -159,6 +159,7 @@ int main()
       
       ttl_actual_dmg += actual_dmg;
       drgn_hp -= actual_dmg;
+      atk_cnt += 1;
       i++;
     }
 
@@ -222,16 +223,16 @@ int main()
   {
     cout << endl << "- Misssion 5 -" << endl;
     
-    unsigned int n, n_l = 0, n_l2 = 0, n_s = 1000000;
+    unsigned int n, n_l = 0, n_l2 = 0, n_s = 1000000000;
 
     cout << "Enter no. of +ve integers: ";
     cin >> n;
 
-    int i = 0;
+    int i = 1;
 
-    while (i < n)
+    while (i <= n)
     {
-      int t;
+      unsigned int t;
       cout << "Enter number #" << i << " : ";
       cin >> t;
 
@@ -258,5 +259,238 @@ int main()
 
   cout <<endl << "===== Level 4 ======" << endl;
   
+  {
+    cout << endl << "- Mission 6 -" << endl;
+
+    int n;
+    int sf = 0, crsd = 0, empty = 0;
+    int sum_sf = 0, sum_crsd =0;
+    int lrg_sf = 0, sm_crsd = 0;
+    cout << "Enter number of artifacts; ";
+    cin >> n;
+    
+    int i = 1;
+    while (i <= n)
+    {
+      int t;
+      cout << "Enter value of artifact# " << i << ": ";
+      cin >> t;
+      
+      bool isSafe = false;
+      bool isCrsd = false;
+      bool isEmpty = false;
+      
+      if (t > 0)
+      {
+        sf += 1;
+        sum_sf += t;
+        isSafe = true;
+      } 
+
+      else if (t < 0)
+      {
+        isCrsd = true;
+        crsd += 1;
+        sum_crsd += t;
+      }
+      else if (t == 0)
+      {
+        isEmpty = true;
+        empty+= 1;
+      }
+
+      if (isSafe && t > lrg_sf)
+        lrg_sf = t;
+
+      if (isCrsd && t < sm_crsd)
+        sm_crsd = t;
+      i++;
+    }
+
+    cout << "No. of safe artf. : " << sf << endl;
+    cout << "No. of crsd artf. : " << crsd << endl;
+    cout << "No. of empty artf. : " << empty << endl; 
+    cout << "Sum of safe values: " << sum_sf << endl;
+    cout << "Sum of cursed values: " << sum_crsd << endl;
+    cout << "Largest safe value: " << lrg_sf << endl;
+    cout << "Smallest cursed value: " << sm_crsd << endl;
+  }
+
+  cout << endl << "======= Mission 5 ======" <<endl;
+
+  {
+    cout << "- Mission 7 -" << endl;
+    int n, code, enrgy = 100;
+    int atmpts = 0;
+    bool didOpen = false;
+    cout << "Enter Code: ";
+    cin >> code;
+
+    cout << "Enter No of attempts: ";
+    cin >> n;
+    
+    int i = 1;
+    while (i <= n)
+    {
+      int t;
+      cout << "Attempt #" << i << ": ";
+      cin >> t;
+
+      atmpts += 1;
+      if (t == code)
+      {
+        cout << "Correct!" << endl;
+        cout << "VAULT UNLOCKED! " << endl;
+        didOpen = true;
+        break;
+        
+      }
+      else if ( t > code)
+      {
+        // am i supposed to do w og energy or not????
+        enrgy -= enrgy / n;
+        cout << "Too high" << endl;
+      }else if (t < code){
+        cout << "Too low" << endl;
+        enrgy -= enrgy / n;
+      }
+      i++;
+    }
+    if (!didOpen)
+      cout << "Vault is still locked :(" << endl;
+    cout << "Attempts Used: " << atmpts << endl;
+    cout << "Energy remaining: " << enrgy << endl;
+  }
+
+  cout << endl << "======== Level 6 =========" << endl;
+  {
+    cout << endl << "- Mission 8 -" << endl;
+    unsigned int n;
+    unsigned int stps = 0, lrgst = 0;
+
+    cout << "Enter a +ve int: ";
+    cin >> n;
+
+    while (n!= 1)
+    {
+      if (n % 2 == 0)
+        n = n / 2;
+      else
+        n = (n * 3 )+ 1;
+
+      cout << n << endl;
+
+      if (n > lrgst)
+        lrgst = n;
+
+      stps += 1;
+    }
+
+    cout << "Steps: " << stps << endl;
+    cout << "Largest Value: " << lrgst << endl;
+    
+  }
+
+  {
+    cout << "- Mission 9 -" << endl;
+
+    // infinity
+    // TODO: commment me
+    unsigned int e, no_rnds = 0, hgh_e = 0, low_e = 0, no_even = 0, no_odd = 0;
+    cout << "Enter +ve energy (plz enter 0 to prevent infinite loop): ";
+    cin >> e;
+
+    while (e > 0)
+    {
+      if (e % 2 == 0)
+      {
+        e /= 2;
+        no_even += 1;
+      }else{
+        e += 7;
+        no_odd += 1;
+      }
+
+      if (e % 5 == 0)
+        e -= 3;
+      
+      if (e > hgh_e)
+        hgh_e = e;
+      // lowest energy will always be 0 ngl 
+      if (e < low_e)
+        low_e = e;
+      
+      no_rnds += 1;
+    }
+
+    cout << "No of Rounds: " << no_rnds << endl;
+    cout << "No of Even Rounds: " << no_even << endl;
+    cout << "No of Odd Rounds: " << no_odd << endl;
+
+    cout << "Lowest Energy: " << low_e << endl;
+    cout << "Highest Energy: " << hgh_e << endl;    
+  }
+
+  {
+    cout << "- Mission 10 -" << endl;
+    int hp = 100, gld = 0, scr = 0;
+    int encr_srv = 0;
+
+    cout << "1 = Monster, 2 = Treasure, 3 = Trap, 4 = Healing Fountain, 5 = Ancient Artifact" << endl;
+
+    while (hp > 0)
+    {
+      int t;
+      cout << "Enter an int (1 - 5): ";
+      cin >> t;
+      
+      if (t < 1 || t > 5)
+        // can i use continue?? idk
+        cout << "Invalid input :<" << endl;
+      else if ( t == 1)
+        {
+          hp -= 20;
+        }
+      else if (t == 2){
+        gld += 100;
+        scr += 10;
+      }
+      else if (t == 3)
+      {
+        hp -= 15;
+        scr -= 5;
+      }
+      else if ( t == 4)
+      {
+        hp += 25;
+      }
+      else if (t == 5 && hp < 40)
+      {
+        gld+= 250;
+        scr += 50;
+      }
+      else if (t == 5)
+      {
+        gld += 250;
+        scr += 30;
+      }
+
+      if (hp > 100)
+        hp = 100;
+      encr_srv++;
+    }
+
+    cout << "Health: " << hp << ", Gold: " << gld << ", Score: " << scr << endl;
+    cout << "Encounters Survived: " << encr_srv << endl;
+
+    if (scr >= 100)
+      cout << "LEGENDARY TREASURE HUNTER" << endl;
+    else if (scr >= 50)
+      cout << "Master explorer" << endl;
+    else if (scr >= 20)
+      cout << "Survivor" << endl;
+    else
+      cout << "novice" << endl;
+  }
   return 0;
 }
