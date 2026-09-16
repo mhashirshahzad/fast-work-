@@ -9,19 +9,13 @@ int main() {
   
 
 
-  cout << "Student's way: " << endl; 
-
   i = 0;
+  cout << "Student's way: " << endl; 
   while (i < n * n)
   {
-
-    // n * n = 16
-    // i % n = x
-    // i / n = y
     if (i % n <= i / n) cout << "*";
     else cout << "_";
     if (i % n == n - 1) cout << "\n";
-
     i++;
   }
   return 0;
