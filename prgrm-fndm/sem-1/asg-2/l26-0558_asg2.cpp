@@ -73,9 +73,9 @@ void palindromeCheck() {
   }
 
   if (isPalindrome) {
-    cout  << "> " << word <<  " is palindrome";
+    cout  << "\n> " << word <<  " is palindrome";
   } else {    
-    cout  << "> "<< word <<  " is not palindrome";
+    cout  << "\n> "<< word <<  " is not palindrome";
   }
   
 
@@ -95,12 +95,12 @@ void moveZeros() {
   
 
   if (size < 1 || size > 1000) {
-    cout << "Error! Size is too small or too big...\n";
+    cout << "> Error! Size is too small or too big...\n";
     wrongInput = true;
   }
 
   if (!wrongInput)
-    cout << "> Enter n elements: ";
+    cout << "> Enter " << size << " elements: ";
 
   for (int i = 0; i < size && !wrongInput; i++) {
     cin >> array[i];
@@ -127,7 +127,7 @@ void moveZeros() {
   }
 
   if (!wrongInput) {
-    cout << "> New array is: { ";
+    cout << "\n> New array is: { ";
     for (int i = 0; i < size; i++)
       cout << array[i] << " ";
 
@@ -135,12 +135,173 @@ void moveZeros() {
   }
   printMenu();
 }
+
 void binarySearch() {
-  return;
+
+  int size;
+  int k;
+  int array[1000] = {0};
+
+  bool wrongInput = false;
+  int indexOfK = -1;
+
+  cout << "> Enter size of array (1 till 1000): ";
+  cin >> size;
+  
+  if (size < 1 || size > 1000) {
+    cout << "> Error! Size is too small or too big...\n";
+    wrongInput = true;
+  }
+
+  if (!wrongInput)
+    cout << "> Enter " << size <<" elements: ";
+
+  for (int i = 0; i < size && !wrongInput; i++) {
+    cin >> array[i];
+  }
+
+  if (!wrongInput) {
+    cout << "> Enter k (the value to find): ";
+    cin >> k;
+  }
+  int lowrLim = 0;
+  int hghrLim = size - 1;
+
+  while (lowrLim <= hghrLim && indexOfK == -1 && !wrongInput ) {
+    int mid = (lowrLim + hghrLim) / 2;
+    if (array[lowrLim] == k) {
+      indexOfK = lowrLim;
+    } else if (array[hghrLim] == k) {
+      indexOfK = hghrLim;
+    } else if (array[mid] == k) {
+      indexOfK = mid;
+    } else if (array[mid] > k) {
+      hghrLim = mid - 1;
+      lowrLim++;
+    } else if (array[mid] < k) {
+      lowrLim = mid + 1;
+      hghrLim--;
+    }
+  }
+
+  if (wrongInput) {
+    cout << ":( \n";
+  }else if (indexOfK == -1) {
+    cout << "> Couldn't find '" << k << "' in the array :(\n";
+  } else {
+    cout << "\n> Found '" << k << "' at index " << indexOfK + 1 << "'th :)\n";
+  }
+  printMenu();
 }
+
 void mergeArrays(){
-  return;
+
+
+  int size1;
+  int a1[500] = {0};
+
+  int size2;
+  int a2[500] = {0};
+
+  int size3;
+  int a3[1000] = {0};
+  
+  bool wrongInput = false;
+  int indexOfK = -1;
+
+  cout << "> Enter size of 1st array (1 till 1000): ";
+  cin >> size1;
+
+  if (size1 < 1 || size1 > 500) {
+    cout << "> Error! Size is too small or too big...\n";
+    wrongInput = true;
+  }
+
+  if (!wrongInput)
+    cout << "> Enter " << size1 <<" elements: ";
+
+  for (int i = 0; i < size1 && !wrongInput; i++) {
+    cin >> a1[i];
+  }
+
+  cout << "> Enter size of 2nd array (1 till 1000): ";
+  cin >> size2;
+
+  if (size2 < 1 || size2 > 500) {
+    cout << "> Error! Size is too small or too big...\n";
+    wrongInput = true;
+  }
+
+  if (!wrongInput)
+    cout << "> Enter " << size2 <<" elements: ";
+
+  for (int i = 0; i < size2 && !wrongInput; i++) {
+    cin >> a2[i];
+  }
+  
+  int i = 0, j = 0, k = 0;
+
+  size3 = size1 + size2;
+
+  while (i < size1 && j < size2 && k < size3 && !wrongInput) {
+    if (a1[i] == a2[j]) {
+      a3[k++] = a1[i++];
+      a3[k++] = a2[j++];
+    } else if (a1[i] < a2[j])
+      a3[k++] = a1[i++];
+    else if (a1[i] > a2[j]) 
+      a3[k++] = a2[j++];
+  }
+
+  // copyin rem elements ya know :O
+  while (i < size1) {
+    a3[k++] = a1[i++];
+  }
+  while (j < size2) {
+    a3[k++] = a2[j++];
+  }
+  
+  if (!wrongInput) {
+    cout << "\n> New array is: { ";
+    for (int i = 0; i < size3; i++)
+      cout << a3[i] << " ";
+    cout << "} \n";
+  }
+
+  printMenu();
 }
+
 void longestSubarray() {
-  return;
+  int size;
+  int s;
+  int array[1000] = {0};
+
+  bool wrongInput = false;
+  int indexOfK = -1;
+
+  cout << "> Enter size of array (1 till 1000): ";
+  cin >> size;
+  
+  if (size < 1 || size > 1000) {
+    cout << "> Error! Size is too small or too big...\n";
+    wrongInput = true;
+  }
+
+  if (!wrongInput)
+    cout << "> Enter " << size <<" elements: ";
+
+  for (int i = 0; i < size && !wrongInput; i++) {
+    cin >> array[i];
+    if (array[i] < 0 ) {
+      wrongInput = true;
+    }
+  }
+
+  cout << "> Enter the maximum possible sum: ";
+  cin >> s;
+
+  
+
+  
+  printMenu();
 }
