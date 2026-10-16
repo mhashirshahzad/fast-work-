@@ -302,10 +302,6 @@ void longestSubarray() {
     cin >> s;
   }
 
-  if (size < 1) {
-    cout << "> Error! Max sum is too small :(";
-    wrongInput = true;
-  }
 
 
   int newSubArrayIndex = 0;
