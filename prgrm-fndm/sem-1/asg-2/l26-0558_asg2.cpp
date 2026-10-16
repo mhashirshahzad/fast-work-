@@ -297,10 +297,72 @@ void longestSubarray() {
     }
   }
 
-  cout << "> Enter the maximum possible sum: ";
-  cin >> s;
+  if (!wrongInput) {
+    cout << "> Enter the maximum possible sum: ";
+    cin >> s;
+  }
 
+  if (size < 1) {
+    cout << "> Error! Max sum is too small :(";
+    wrongInput = true;
+  }
+
+
+  int newSubArrayIndex = 0;
+  int newSubArrayLength = 0;
+
+  int longestSubArrayIndex = 0;
+  int longestSubArrayLength = 0;
+  int longestClosestS = 0;
+
+  int newClosestS = 0;
+
+  for(int i = 0; i < size && !wrongInput; i++) {
+
+    if (newClosestS + array[i] <= s) {
+      newClosestS += array[i];
+      newSubArrayLength++;
+    } else {
+      // get the 0th element of sub array and remove it
+      newClosestS -= array[i - newSubArrayLength];
+      // so we can redo the current iteration
+      // didnt want to do nested, go one step behind and retry :o
+      // wont get stuck for some reason :?
+      i--;
+      newSubArrayIndex++;
+      newSubArrayLength--;
+    }
+
+    // if new one is better for us :o
+    if (newClosestS >= longestClosestS && newSubArrayLength >= longestSubArrayLength) {
+      longestClosestS = newClosestS;
+      longestSubArrayIndex = newSubArrayIndex;
+      longestSubArrayLength = newSubArrayLength;
+    }
+    
+  }
+
+  if (!wrongInput)
+    cout << "\n> Length: " << longestSubArrayLength;
+
+  if (longestSubArrayLength > 0 && !wrongInput)
+    cout << ", starts at: " << longestSubArrayIndex;
+
+  if (!wrongInput)
+    cout << "\n> SubArray: { ";
+
+  for (
+      int i = longestSubArrayIndex;
+      i < longestSubArrayIndex + longestSubArrayLength && !wrongInput;
+      i++
+     )
   
+    cout << array[i] << " ";
+
+  if (!wrongInput) {
+    cout << "}";
+    cout << " adds to  " << longestClosestS << "\n";
+  }
 
   
   printMenu();
