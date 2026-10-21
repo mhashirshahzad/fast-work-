@@ -34,4 +34,5 @@ bool isEven(int n) {
 void displayResult(int result) {
   cout << "Marks: " << result << endl;
   cout << "Grade: " << getGrade(result)<< endl;
+  cout << "Average: " << getAverage(result / 2, result / 3)<< endl;
 }
